@@ -42,7 +42,7 @@ public class TreeNode {
     }
 
     public List<TreeNode> getChild() {
-        return child;
+        return this.child;
     }
 
     public String getKey() {

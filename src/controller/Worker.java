@@ -6,6 +6,7 @@ import Assignment.model.*;
 public class Worker {
     public static void main(String[] args) {
         FileIO io = new FileIO();
+        MainTree tree = new MainTree();
         String inputFileName;
         String outputFileName;
         try {
@@ -34,6 +35,13 @@ public class Worker {
                 }
                 if(args[2].equalsIgnoreCase("-d")) {
                     // Display read from file tree
+                    if(tree == null) {
+                        System.out.println("Tree is empty!");
+                    }
+                    else {
+                        System.out.println("DISPLAYING TREE");
+                        System.out.println("Tree: " + tree.display());
+                    }
                 }
                 else if(args[2].equalsIgnoreCase("-w")) {
                     if(args[3] != null) {

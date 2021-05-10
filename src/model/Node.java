@@ -45,6 +45,38 @@ public class Node {
         this.s = inS;
     }
 
+    public double getdm() {
+        return this.dm;
+    }
+
+    public double getda() {
+        return this.da;
+    }
+
+    public double getde() {
+        return this.de;
+    }
+
+    public double getem() {
+        return this.em;
+    }
+
+    public double getea() {
+        return this.ea;
+    }
+
+    public double getee() {
+        return this.ee;
+    }
+
+    public double geth() {
+        return this.h;
+    }
+
+    public double gets() {
+        return this.s;
+    }
+
     public String getKey() {
         return this.key;
     }
