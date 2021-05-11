@@ -42,8 +42,10 @@ public class Worker {
                     //     System.out.println("DISPLAYING TREE");
                     //     System.out.println("Tree: " + tree.display());
                     // }
-                    System.out.println("DISPLAYINGG");
-                    tree.display();
+                    System.out.println("DISPLAY TREE");
+                    tree.displayTree();
+                    System.out.println("DISPLAY TOTAL CONSUMPTIONS");
+                    tree.displayTotalPowerConsumption();
                 }
                 else if(args[2].equalsIgnoreCase("-w")) {
                     if(args[3] != null) {

@@ -125,13 +125,27 @@ public class MainTree {
     }
 
 
-    public String display() {
+    public String displayTree() {
         return preOrder(root, 0);
     }
 
+    public void displayTotalPowerConsumption() {
+        double[] data = new double[8];
+        data = displayTotalPower(root,data);
+        System.out.println("\nWeekday morning     :\t" + data[0]);
+        System.out.println("Weekday afternoon   :\t" + data[1]);
+        System.out.println("Weekday evening     :\t" + data[2]);
+        System.out.println("Weekend morning     :\t" + data[3]);
+        System.out.println("Weekend afternoon   :\t" + data[4]);
+        System.out.println("Weekend evening     :\t" + data[5]);
+        System.out.println("Heatware            :\t" + data[6]);
+        System.out.println("Special event       :\t" + data[7]);
+
+    }
+
     public String preOrder(TreeNode currNode, int type) {
-        String displayTree = "";
         System.out.println(currNode.getKey());
+        String displayTree = "";
         type++;
         for(TreeNode child : currNode.getChild()) {
             for(int i = 0; i < type; i++) {
@@ -141,5 +155,59 @@ public class MainTree {
         }
         return displayTree;
     }
+
+    // public void displayTotalPower(TreeNode currNode) {
+    //     double[] totalPower = new double[8];
+    //     totalPower = getTotalPower(currNode,totalPower);
+    //     System.out.println("DISPLAY TOTAL POWER");
+    //     for(int i = 0; i < totalPower.length; i++) {
+    //         System.out.println(totalPower[i]);
+    //     }
+    // }
+
+    public double[] displayTotalPower(TreeNode currNode, double[] data) {
+        double[] totalPower = data;
+        for(TreeNode child : currNode.getChild()) {
+            if(child.getdm()>0) {
+                totalPower[0] = child.getdm();
+            }
+            if(child.getda()>0) {
+                totalPower[1] = child.getda();
+            }
+            if(child.getde()>0) {
+                totalPower[2] = child.getde();
+            }
+            if(child.getem()>0) {
+                totalPower[3] = child.getem();
+            }
+            if(child.getea()>0) {
+                totalPower[4] = child.getea();
+            }
+            if(child.getee()>0) {
+                totalPower[5] = child.getee();
+            }
+            if(child.geth()>0) {
+                totalPower[6] = child.geth();
+            }
+            if(child.gets()>0) {
+                totalPower[7] = child.gets();
+            }
+            displayTotalPower(child, data);
+        }
+        return totalPower;
+    }
+
+    // public double[] getTotalPower(TreeNode currNode) {
+    //     double[] powerArray = inTotalPower;
+    //     double[] totalData = new double[8];
+    //     for(TreeNode child : currNode.getChild()) {
+    //         totalData = currNode.getData();
+    //         for(int i = 0; i < 8; i++) {
+    //             powerArray[i] = powerArray[i] + totalData[i];
+    //         }
+    //         getTotalPower(child, powerArray);
+    //     }
+    //     return powerArray;
+    // }
 }
 
