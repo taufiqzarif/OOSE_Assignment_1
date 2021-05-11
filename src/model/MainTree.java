@@ -9,11 +9,7 @@ public class MainTree {
     }
 
     public void insertNode(String key, String parent, String category) {
-//        TreeNode newNode = new TreeNode(key, value);
-//        TreeNode currentNode = curNode;
-        // if(category!=null) {
-        //     // System.out.println("Total category: " + category.length);
-        // }
+
         if(root == null) { //First child after root in tree
             System.out.println("Running when root is null (MainTree.java)");
             Node newNode = new Node(key, parent);
@@ -130,12 +126,19 @@ public class MainTree {
 
 
     public String display() {
-        return displayRecursive(root);
+        return preOrder(root, 0);
     }
 
-    public String displayRecursive(TreeNode currNode) {
+    public String preOrder(TreeNode currNode, int type) {
         String displayTree = "";
-        System.out.println("currNode key is " + currNode.getKey());
+        System.out.println(currNode.getKey());
+        type++;
+        for(TreeNode child : currNode.getChild()) {
+            for(int i = 0; i < type; i++) {
+                System.out.print("    ");
+            }
+            preOrder(child, type);
+        }
         return displayTree;
     }
 }
