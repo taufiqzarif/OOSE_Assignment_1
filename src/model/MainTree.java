@@ -167,32 +167,33 @@ public class MainTree {
 
     public double[] displayTotalPower(TreeNode currNode, double[] data) {
         double[] totalPower = data;
+        
         for(TreeNode child : currNode.getChild()) {
             if(child.getdm()>0) {
-                totalPower[0] = child.getdm();
+                totalPower[0] = totalPower[0] + child.getdm();
             }
             if(child.getda()>0) {
-                totalPower[1] = child.getda();
+                totalPower[1] = totalPower[1] + child.getda();
             }
             if(child.getde()>0) {
-                totalPower[2] = child.getde();
+                totalPower[2] = totalPower[2] + child.getde();
             }
             if(child.getem()>0) {
-                totalPower[3] = child.getem();
+                totalPower[3] = totalPower[3] + child.getem();
             }
             if(child.getea()>0) {
-                totalPower[4] = child.getea();
+                totalPower[4] = totalPower[4] + child.getea();
             }
             if(child.getee()>0) {
-                totalPower[5] = child.getee();
+                totalPower[5] = totalPower[5] + child.getee();
             }
             if(child.geth()>0) {
-                totalPower[6] = child.geth();
+                totalPower[6] = totalPower[6] + child.geth();
             }
             if(child.gets()>0) {
-                totalPower[7] = child.gets();
+                totalPower[7] = totalPower[7] + child.gets();
             }
-            displayTotalPower(child, data);
+            displayTotalPower(child, totalPower);
         }
         return totalPower;
     }

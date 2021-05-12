@@ -41,8 +41,4 @@ public class FileIO {
         return tree;
     }
 
-    // public void displayTree() {
-    //     System.out.println("displayTree");
-    //     System.out.println(tree.display());
-    // }
 }
