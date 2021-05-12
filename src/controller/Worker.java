@@ -30,22 +30,21 @@ public class Worker {
                     System.out.println("reading " + inputFileName);
                     tree = io.readFile(inputFileName);
                 }
-                else {
+                else if(args[1] == null) {
                     throw new IllegalArgumentException("No input file!");
                 }
+
                 if(args[2].equalsIgnoreCase("-d")) {
-                    // Display read from file tree
-                    // if(tree == null) {
-                    //     System.out.println("Tree is empty!");
-                    // }
-                    // else {
-                    //     System.out.println("DISPLAYING TREE");
-                    //     System.out.println("Tree: " + tree.display());
-                    // }
-                    System.out.println("DISPLAY TREE");
-                    tree.displayTree();
-                    System.out.println("DISPLAY TOTAL CONSUMPTIONS");
-                    tree.displayTotalPowerConsumption();
+                    if(tree.isEmpty()) {
+                        System.out.println("Tree is empty!");
+                    }
+                    else {
+                        System.out.println("DISPLAY TREE");
+                        tree.displayTree();
+                        System.out.println("\nDISPLAY TOTAL CONSUMPTIONS");
+                        tree.displayTotalPowerConsumption();
+                    }
+                    
                 }
                 else if(args[2].equalsIgnoreCase("-w")) {
                     if(args[3] != null) {

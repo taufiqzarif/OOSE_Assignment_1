@@ -125,8 +125,8 @@ public class MainTree {
     }
 
 
-    public String displayTree() {
-        return preOrder(root, 0);
+    public void displayTree() {
+        preOrder(root, 0);
     }
 
     public void displayTotalPowerConsumption() {
@@ -143,28 +143,25 @@ public class MainTree {
 
     }
 
-    public String preOrder(TreeNode currNode, int type) {
+    /* 
+    Import: currNode (TreeNode), data (double[])
+    Export: displayTree (double[])
+    */
+    public void preOrder(TreeNode currNode, int indent) {
         System.out.println(currNode.getKey());
-        String displayTree = "";
-        type++;
+        indent++;
         for(TreeNode child : currNode.getChild()) {
-            for(int i = 0; i < type; i++) {
+            for(int i = 0; i < indent; i++) {
                 System.out.print("    ");
             }
-            preOrder(child, type);
+            preOrder(child, indent);
         }
-        return displayTree;
     }
 
-    // public void displayTotalPower(TreeNode currNode) {
-    //     double[] totalPower = new double[8];
-    //     totalPower = getTotalPower(currNode,totalPower);
-    //     System.out.println("DISPLAY TOTAL POWER");
-    //     for(int i = 0; i < totalPower.length; i++) {
-    //         System.out.println(totalPower[i]);
-    //     }
-    // }
-
+    /* 
+    Import: currNode (TreeNode), data (double[])
+    Export: totalPower (double[])
+    */
     public double[] displayTotalPower(TreeNode currNode, double[] data) {
         double[] totalPower = data;
         
@@ -198,17 +195,13 @@ public class MainTree {
         return totalPower;
     }
 
-    // public double[] getTotalPower(TreeNode currNode) {
-    //     double[] powerArray = inTotalPower;
-    //     double[] totalData = new double[8];
-    //     for(TreeNode child : currNode.getChild()) {
-    //         totalData = currNode.getData();
-    //         for(int i = 0; i < 8; i++) {
-    //             powerArray[i] = powerArray[i] + totalData[i];
-    //         }
-    //         getTotalPower(child, powerArray);
-    //     }
-    //     return powerArray;
-    // }
+    public boolean isEmpty() {
+        boolean check = false;
+        if(root==null) {
+            check = true;
+        }
+        return check;
+    }
+
 }
 
